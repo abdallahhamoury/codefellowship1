@@ -1,24 +1,35 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <!--  <link rel="stylesheet" href="../css/reset.css">-->
+    <!--  <link rel="stylesheet" href="../css/Style.css">-->
+    <link th:href="@{./css/reset.css}" rel="stylesheet">
+    <link th:href="@{./css/style.css}" rel="stylesheet">
 </head>
 <body>
-<form method="POST" action="/signup">
-    <label for="username">User Name</label>
-    <input id="username" name="username" type="text">
-    <label for="password">Password</label>
-    <input id="password" name="password" type="password">
-    <label for="firstName">First Name</label>
-    <input id="firstname" name="firstname" type="text">
-    <label for="lastName">Last Name</label>
-    <input id="lastname" name="lastname" type="text">
-    <label for="bio">Bio</label>
-    <input id="bio" name="bio" type="text">
-    <label for="dateofbirth">Date Of Birth</label>
-    <input id="dateofbirth" name="dateofbirth" type="text">
-    <button type="submit">Sign up</button>
-</form>
+<header>
+    <div th:insert="fragmentHeader :: header"></div>
+</header>
+<div class="main">
+    <div class="object">
+        <form method="POST" action="/signup">
+            <label for="username">User Name</label>
+            <input id="username" name="username" type="text"><br>
+            <label for="password">Password</label>
+            <input id="password" name="password" type="password"><br>
+            <label for="firstName">First Name</label>
+            <input id="firstname" name="firstname" type="text"><br>
+            <label for="lastName">Last Name</label>
+            <input id="lastname" name="lastname" type="text"><br>
+            <label for="bio">Bio</label>
+            <input id="bio" name="bio" type="text"><br>
+            <label for="dateofbirth">Date Of Birth</label>
+            <input id="dateofbirth" name="dateofbirth" type="text"><br>
+            <button type="submit">Sign up</button>
+        </form>
+    </div>
+</div>
 </body>
 </html>
