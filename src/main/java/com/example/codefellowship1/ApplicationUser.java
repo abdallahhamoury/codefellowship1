@@ -5,7 +5,6 @@ import org.springframework.security.core.userdetails.UserDetails;
 import javax.persistence.*;
 import java.util.Collection;
 import java.util.List;
-//import java.util.Date;// we test and it is not working for dateofbirth
 @Entity
 public class ApplicationUser implements UserDetails {
     @Id
@@ -29,7 +28,7 @@ public class ApplicationUser implements UserDetails {
         this.bio = bio;
     }
     public ApplicationUser(){
-        //default one
+
     }
     public List<Post> getAllposts() {
         return allposts;

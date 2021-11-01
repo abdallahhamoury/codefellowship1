@@ -24,7 +24,6 @@ public class Post {
         this.applicationUser = applicationUser;
     }
     public Post(){
-        //default
     }
     public Integer getId() {
         return id;
