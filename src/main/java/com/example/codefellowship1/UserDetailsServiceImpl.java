@@ -17,4 +17,8 @@ public class UserDetailsServiceImpl implements UserDetailsService {
         }
         return applicationUser;
     }
+    //    public ApplicationUser getUserById(int id) {
+//       ApplicationUser applicationUserid=applicationUserRepository.findById(id) ;
+//      return applicationUserid;
+//    }
 }
