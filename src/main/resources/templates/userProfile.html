@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Title</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous" />
+</head>
+<body style="background-color: #6B7AA1; height: 100vh">
+<header>
+    <div th:replace="frag/topnav :: topnav"></div>
+</header>
+<main style="display: grid; grid-template-columns: repeat(2, 50% 50%)">
+    <div class="card" style="width: 18rem; margin: auto ; margin-top: 10px;">
+        <img class="card-img-top" src="https://www.donkey.bike/wp-content/uploads/2020/12/user-member-avatar-face-profile-icon-vector-22965342-e1608640557889.jpg" alt="profile img" />
+        <div class="card-body">
+            <h5 class="card-title"><span th:text="${userProfile.getUsername()}"></span></h5>
+            <p class="card-text"><span th:text="${userProfile.getBio()}"></span></p>
+        </div>
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item">First Name: <span th:text="${userProfile.getFirstName()}"></span></li>
+            <li class="list-group-item">Last Name: <span th:text="${userProfile.getLastName()}"></span></li>
+            <li class="list-group-item">Date Of Birth: <span th:text="${userProfile.getDateOfBirth()}"></span></li>
+        </ul>
+    </div>
+    <div>
+        <h3 style="margin-top: 30px;"> Recent Posts : </h3>
+        <ul th:each="post : ${userProfile.getPostList()}" class="list-group" style="width: 70%;">
+            <li class="list-group-item disabled">Post :<span th:text="${post.body}"></span><br/>
+            <li class="list-group-item disabled">Time :<span th:text="${post.createdAt}"></span><br/>
+            <li class="list-group-item disabled">Posted By :<span th:text="${post.user.username}"></span><br/>
+            </li>
+            <br/>
+        </ul>
+    </div>
+    </div>
+    </div>
+</main>
+</body>
+</html>
