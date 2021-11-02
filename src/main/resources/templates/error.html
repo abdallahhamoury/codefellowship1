@@ -1,13 +1,16 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
+    <meta charset="UTF-8" />
     <title>Title</title>
-    <link th:href="@{./css/reset.css}" rel="stylesheet">
-    <link th:href="@{./css/style.css}" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous" />
 </head>
-<body>
-<h2>You Have To Log In </h2>
-<div th:insert="fragmentHeader :: header"></div>
+<body style="background-color: #6B7AA1">
+<header>
+    <div th:replace="frag/topnav :: topnav"></div>
+</header>
+<main>
+    <h2>An Error Happened please try agin</h2>
+</main>
 </body>
 </html>

@@ -1,10 +1,10 @@
-package com.example.codefellowship1;
+package com.example.codefellowship;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 @SpringBootApplication
-public class CodefellowshipSpringApplication {
+public class CodefellowshipApplication {
     public static void main(String[] args) {
-        SpringApplication.run(CodefellowshipSpringApplication.class, args);
+        SpringApplication.run(CodefellowshipApplication.class, args);
     }
 }

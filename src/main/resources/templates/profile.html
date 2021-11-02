@@ -1,36 +1,47 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
+    <meta charset="UTF-8" />
     <title>Title</title>
-    <link th:href="@{./css/reset.css}" rel="stylesheet">
-    <link th:href="@{./css/style.css}" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous" />
 </head>
-<body>
+<body style="background-color: #6B7AA1; height: 100vh">
 <header>
-    <div th:insert="fragmentHeader :: header"></div>
-    <h2 th:text="${usernamePrincipal}"></h2>
+    <div th:replace="frag/topnav :: topnav"></div>
 </header>
-<div class="main">
-    <div class="object">
-        <h3>User Name</h3>
-        <p th:text="${profile.username}"></p>
-        <h3>Full Name</h3>
-        <p th:text="${profile.firstname} + ' '+${profile.lastname}"></p>
-        <h3>Date of birth</h3>
-        <p th:text="${profile.dateofbirth}"></p>
-        <h3>bio</h3>
-        <p th:text="${profile.bio}"></p>
-        <form action="/profile" method="post">
-            <input type="text" name="body" id="body"><br>
-            <button type="submit">Add Post</button>
+<main style="display: grid; grid-template-columns: repeat(2, 50% 50%)">
+    <div class="card" style="width: 18rem; margin: auto ; margin-top: 10px;">
+        <img class="card-img-top" src="https://www.donkey.bike/wp-content/uploads/2020/12/user-member-avatar-face-profile-icon-vector-22965342-e1608640557889.jpg" alt="profile img" />
+        <div class="card-body">
+            <h5 class="card-title"><span th:text="${username}"></span></h5>
+            <p class="card-text"><span th:text="${bio}"></p>
+        </div>
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item">First Name: <span th:text="${firstName}"></span></li>
+            <li class="list-group-item">Last Name: <span th:text="${lastName}"></span></li>
+            <li class="list-group-item">Date Of Birth: <span th:text="${dateOfBirth}"></span></li>
+        </ul>
+    </div>
+    <div>
+        <form class="px-4 py-3" th:action="@{/addpost}" method="post" style="width: 70%;">
+            <div class="form-group">
+                <label for="body">Type Your Post</label>
+                <textarea class="form-control" rows="3" field="*{body}" name="body" required></textarea>
+            </div>
+            <button type="submit" class="btn btn-warning">Submit</button>
         </form>
+        <div>
+            <h3> Your Posts : </h3>
+            <ul th:each="post : ${postList}" class="list-group" style="width: 70%;">
+                <li class="list-group-item disabled">Post :<span th:text="${post.body}"></span><br/>
+                <li class="list-group-item disabled">Time :<span th:text="${post.createdAt}"></span><br/>
+                <li class="list-group-item disabled">Posted By :<span th:text="${post.user.username}"></span><br/>
+                </li>
+                <br/>
+            </ul>
+        </div>
     </div>
-    <div class="objectTow" th:each="onepost:${profile.allposts}">
-        <h2 th:text="${onepost.id}"></h2>
-        <h2 th:text="${onepost.body}"></h2>
-        <h2 th:text="${onepost.createdAt}"></h2>
     </div>
-</div>
+</main>
 </body>
 </html>
