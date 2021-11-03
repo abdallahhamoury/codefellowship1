@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8" />
     <title>Title</title>
@@ -21,6 +21,11 @@
             <li class="list-group-item">Last Name: <span th:text="${userProfile.getLastName()}"></span></li>
             <li class="list-group-item">Date Of Birth: <span th:text="${userProfile.getDateOfBirth()}"></span></li>
         </ul>
+    </div>
+    <div>
+        <form  th:if="${!loggedInUser.getFollowing.contains(userProfile)}" th:action="@{/follow/{id}(id=${userProfile.getId()})}" method="POST">
+            <input type="submit" value="Follow">
+        </form>
     </div>
     <div>
         <h3 style="margin-top: 30px;"> Recent Posts : </h3>

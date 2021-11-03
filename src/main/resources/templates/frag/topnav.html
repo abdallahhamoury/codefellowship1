@@ -1,4 +1,5 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light" th:fragment="topnav">
+<nav class="navbar navbar-expand-lg navbar-light bg-light" th:fragment="topnav"
+     xmlns:sec="http://www.w3.org/1999/xhtml">
     <a class="navbar-brand" href="#">CodeFellows</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -8,17 +9,23 @@
             <li class="nav-item active">
                 <a href="http://localhost:8080" class="nav-link">Home<span class="sr-only">(current)</span></a>
             </li>
-            <li class="nav-item">
+            <li sec:authorize="isFullyAuthenticated()" class="nav-item">
                 <a th:href="@{http://localhost:8080/profile}" class="nav-link">Your Profile</a>
             </li>
-            <li class="nav-item">
+            <li sec:authorize="isFullyAuthenticated()" class="nav-item">
                 <a class="nav-link" href="http://localhost:8080/feed">Feed</a>
             </li>
-            <li class="nav-item">
+            <li class="nav-item" sec:authorize="!isFullyAuthenticated()">
                 <a class="nav-link" href="http://localhost:8080/signup">Sign-up</a>
             </li>
-            <li class="nav-item">
+            <li sec:authorize="!isFullyAuthenticated()" class="nav-item">
                 <a class="nav-link" href="http://localhost:8080/login">Log-In</a>
+            </li>
+            <li sec:authorize="isFullyAuthenticated()" class="nav-item">
+                <a class="nav-link" href="http://localhost:8080/allUser">all users</a>
+            </li>
+            <li sec:authorize="isFullyAuthenticated()"class="nav-item">
+                <a class="nav-link" href="/perform_logout">Log-out</a>
             </li>
             <li class="nav-item">
                 <p class="nav-link disabled" th:text="${username}"></p>
