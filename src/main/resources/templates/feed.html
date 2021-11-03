@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8" />
     <title>Title</title>
@@ -10,20 +10,22 @@
     <div th:replace="frag/topnav :: topnav"></div>
 </header>
 <main>
-    <img style="width: 100%; position: relative" class="HeroImg" src="https://soimagescdn.azureedge.net/productimage/learningenvironment/ArticleHeader/computer-lab-hero.jpg" alt="dev" />
-    <h2 style="position: absolute; top: 70px; left: 30px" class="mainText">WELCOME TO CODE FELLOWS SHIP</h2>
-    <ul th:each="post : ${postList}" class="list-group" style="width: 70%; margin: auto; margin-top: 30px">
+<!--    <img style="width: 100%; position: relative" class="HeroImg" src="https://soimagescdn.azureedge.net/productimage/learningenvironment/ArticleHeader/computer-lab-hero.jpg" alt="dev" />-->
+    <div>  <h2 style="position: absolute; top: 70px; left: 30px" class="mainText">WELCOME TO CODE FELLOWS SHIP</h2>    </div>
+    <div>
+    <ul th:each="post : ${postList}" class="list-group" style="width: 70%; margin: auto; margin-top: 100px">
         <li class="list-group-item disabled">Post :<span th:text="${post.body}"></span><br /></li>
         <li class="list-group-item disabled">Time :<span th:text="${post.createdAt}"></span><br /></li>
         <li class="list-group-item disabled">
             Posted By :<span style="display: inline-block" th:text="${post.user.username}"></span>
-            <form style="float: right" th:action="@{/follow(id=${post.getUser().getId()})}" method="post">
-                <button class="btn btn-warning" type="submit">Follow</button>
-            </form>
+<!--            <form style="float: right" th:action="@{/follow(id=${post.getUser().getId()})}" method="post">-->
+<!--                <button class="btn btn-warning" type="submit">Follow</button>-->
+<!--            </form>-->
             <br />
         </li>
         <br />
     </ul>
+    </div>
 </main>
 </body>
 </html>

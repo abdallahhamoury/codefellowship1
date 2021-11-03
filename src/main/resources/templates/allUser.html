@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script
+            src="https://kit.fontawesome.com/eac52206dc.js"
+            crossorigin="anonymous"
+    ></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous" />
+    <title> CodeFellowShip / profile</title>
+
+</head>
+<body>
+<header> <div th:replace="frag/topnav :: topnav"></div></header>
+<div id="pro">
+    <div th:each="user : ${users}">
+    <div id="stuff">
+        <span> Username:  <a th:href="${'/user/'+user.id}">[[${user.username}]]</a></span><br>
+        <span> First Name: <span th:text=${user.firstName}></span></span><br>
+        <span> Last Name: <span th:text=${user.lastName}></span></span><br>
+        <span> Bio: <span th:text=${user.bio}></span></span><br>
+        <span> Birth date: <span th:text=${user.dateOfBirth}></span></span><br>
+    </div>
+    </div>
+</div>
+<footer><SPAN>All Rights Reserved 	&copy;  abdallah</SPAN></footer>
+</body>
+</html>

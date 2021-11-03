@@ -24,6 +24,16 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     }
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-        http.cors().disable().csrf().disable().authorizeRequests().antMatchers( "/login", "/signup","/","/css/style.css").permitAll().anyRequest().authenticated().and().formLogin().loginPage("/login").loginProcessingUrl("/perform_login").defaultSuccessUrl("/profile", true).failureUrl("/error").and().logout().logoutUrl("/perform_logout").deleteCookies("JSESSIONID");
+        http.cors().disable().csrf().disable().authorizeRequests()
+                .antMatchers( "/login", "/signup","/","/css/style.css")
+                .permitAll().anyRequest().authenticated().and().formLogin()
+                .loginPage("/login").loginProcessingUrl("/perform_login")
+                .defaultSuccessUrl("/profile", true)
+                .failureUrl("/error")
+                .and()
+                .logout()
+                .logoutUrl("/perform_logout")
+                .logoutSuccessUrl("/index")
+                .deleteCookies("JSESSIONID");
     }
 }
